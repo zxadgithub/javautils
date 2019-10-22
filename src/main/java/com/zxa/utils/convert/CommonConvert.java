@@ -1,10 +1,14 @@
 package com.zxa.utils.convert;
 
+import com.fasterxml.jackson.databind.util.BeanUtil;
 import com.zxa.utils.collection.CollectionUtil;
 import com.zxa.utils.pojo.User;
 import com.zxa.utils.pojo.UserVo;
 import net.sf.cglib.beans.BeanCopier;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.time.StopWatch;
 
+import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -49,16 +53,4 @@ public class CommonConvert {
 		}
 		return null;
 	}
-
-	public static void main(String[] args) throws Exception {
-		List list = new ArrayList();
-
-		User user = new User();
-		user.setName("zxa");
-		user.setAge(18);
-		list.add(user);
-		List<UserVo> convert = convertList(list, UserVo.class);
-		System.out.println(convert);
-	}
-
 }
